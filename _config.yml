@@ -23,6 +23,7 @@ sidebar_categories:
     - mutations
     - receiving-updates
     - cache-updates
+    - multiple-clients
   Recipes:
     - auth
     - pagination

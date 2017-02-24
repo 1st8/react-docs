@@ -68,6 +68,7 @@ The config object can include one or more of the following keys:
 - `props`: Modify the props before they are passed into the child component
 - `withRef`: Add a method to access the child component to the container, [read more below](#with-ref)
 - `shouldResubscribe`: A function which gets called with current props and next props when props change. The function should return true if the change requires the component to resubscribe.
+- `use`: Use a client other than the default one specified by given name. See [Multiple clients](/react/multiple-clients.html)
 
 The `graphql` function returns another function, which takes any React component and returns a new React component class wrapped with the specified query. This is similar to how `connect` works in Redux.
 
@@ -114,7 +115,7 @@ const MyComponentWithUpvote = graphql(Upvote, {
 
 <h2 id='compose'>compose</h2>
 
-`react-apollo` exports a `compose` function. Adopting the following pattern allows you to reduce the number of reassignments you're doing every time you wrap your component with `graphql` and often `connect` from `react-redux`. 
+`react-apollo` exports a `compose` function. Adopting the following pattern allows you to reduce the number of reassignments you're doing every time you wrap your component with `graphql` and often `connect` from `react-redux`.
 
 ```js
 import { graphql, compose } from 'react-apollo';
@@ -126,5 +127,3 @@ export default compose(
   connect(mapStateToProps, mapDispatchToProps)
 )(Component);
 ```
-
-
